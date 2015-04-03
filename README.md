@@ -1,5 +1,32 @@
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/supotmaild/BasicPy.git
-git push -u origin master
+# How it works
+
+- Download basic.py in version folder
+- move or copy basic.py file to Python work directory
+- c:\Program Files\Phyton 3.5 for example
+- from Python 
+- >>> import basic
+- >>> basic
+- >>> basic.basic
+- >>> from basic import basic
+- >>> x=basic()
+- >>> x.program()
+- 10 _
+- function program show 10 for start programing
+- and next to 20 30 40 until you fill "exit"
+- fill line number such as 20 to edit command in that line
+- you can use 25 or 21 22 23 for programing
+- all code in BasicPy are original Python language
+- 
+- 3 April 2015
+- Version 1.0 
+- ===========
+- program() 
+- list() 
+- run() 
+- parseStr() to correct int() in Python can't convert String in integer
+- 
+- Contact US
+- ==========
+- ARM Code Club Ratchaburi Thailand
+- feel free to contact us therithwarich@gmail.com
+- 
