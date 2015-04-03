@@ -68,6 +68,7 @@
 
 - Version 2.0 stable (3 April 2015 evening)
 - 
+![BasicPy2.0](https://lh3.googleusercontent.com/-x94TDBHXMGE/VR6EWhNlygI/AAAAAAAAAGY/7WVNWVXIzhs/w680-h403-no/basicpy2.jpg "BasicPy version 2.0")
 - help()
 - cls()   for clear screen
 - new()   for clear all line number (Clean program code from memory to start at 10)
@@ -77,7 +78,8 @@
 - # add path change workspace C:/Program Files/Python 3.5 for automatic
 - Contact US
 - 
-- ==========
 - ARM Code Club Ratchaburi Thailand
+-
 - feel free to contact us therithwarich@gmail.com
 - tel 097-162-0960
+- 
