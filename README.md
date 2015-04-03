@@ -16,6 +16,45 @@
 - fill line number such as 20 to edit command in that line
 - you can use 25 or 21 22 23 for programing
 - all code in BasicPy are original Python language
+-
+- Example
+- x.program()
+- 10 for i in range(10):
+- 20     print(i)
+- 30 print('Ok')
+- 40 exit
+- x.list()
+- 10 for i in range(10):
+- 20    print(i)
+- 30 print('Ok')
+- x.run()
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- Ok
+- x.program()
+- 40 print('Next')
+- 50 exit
+- x.list()
+- 10 for i in range(10):
+- 20    print(i)
+- 30 print('Ok')
+- 40 print('Next')
+- x.program()
+- 50 40
+- 40
+- x.list()
+- - 10 for i in range(10):
+- 20    print(i)
+- 30 print('Ok')
+-
 - 
 - 3 April 2015
 - Version 1.0 
