@@ -1,5 +1,3 @@
-# BasicPy
-Line number code programming on Python interpreter console
 echo # BasicPy >> README.md
 git init
 git add README.md
