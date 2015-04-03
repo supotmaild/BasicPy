@@ -1,4 +1,4 @@
-Enter file contents here'''BasicPy 1.0 ARM Code Club Thailand 2015'''
+'''BasicPy 1.0 ARM Code Club Thailand 2015'''
 class basic:
 	global line_num, program_text
 	line_num = 10
