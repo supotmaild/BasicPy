@@ -57,10 +57,9 @@
 - - 10 for i in range(10):
 - 20    print(i)
 - 30 print('Ok')
-
  
-- 3 April 2015
-- Version 1.0 
+
+- Version 1.0 (3 April 2015)
 - ===========
 - program() 
 - list() 
