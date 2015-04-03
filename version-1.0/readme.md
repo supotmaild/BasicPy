@@ -1,0 +1,9 @@
+BasicPy version 1.0
+Help to use line number editor in Python interpreter mode
+version 1.0 function
+program()
+list()
+run()
+parseStr()
+
+see help me in http:///githubs/supotmaild/BasicPy/ homepage
