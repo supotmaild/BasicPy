@@ -54,7 +54,7 @@
 - 50 40
 - 40
 - x.list()
-- - 10 for i in range(10):
+- 10 for i in range(10):
 - 20    print(i)
 - 30 print('Ok')
  
@@ -67,6 +67,7 @@
 - parseStr() to correct int() in Python can't convert String in integer
 
 - Version 2.0 stable (3 April 2015 evening)
+- 
 - help()
 - cls()   for clear screen
 - new()   for clear all line number (Clean program code from memory to start at 10)
