@@ -16,8 +16,9 @@
 - fill line number such as 20 to edit command in that line
 - you can use 25 or 21 22 23 for programing
 - all code in BasicPy are original Python language
--
+
 - Example
+- 
 - x.program()
 - 10 for i in range(10):
 - 20     print(i)
@@ -54,8 +55,8 @@
 - - 10 for i in range(10):
 - 20    print(i)
 - 30 print('Ok')
--
-- 
+
+ 
 - 3 April 2015
 - Version 1.0 
 - ===========
@@ -63,8 +64,9 @@
 - list() 
 - run() 
 - parseStr() to correct int() in Python can't convert String in integer
-- 
+
 - Contact US
+- 
 - ==========
 - ARM Code Club Ratchaburi Thailand
 - feel free to contact us therithwarich@gmail.com
