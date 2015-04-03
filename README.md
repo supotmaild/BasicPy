@@ -59,7 +59,7 @@
 - 30 print('Ok')
  
 
-- Version 1.0 (3 April 2015)
+- Version 1.0 (3 April 2015) short program for study code
 -
 - program() 
 - list() 
