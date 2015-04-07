@@ -49,15 +49,8 @@ class basic:
 		j = ''
 		for i in program_text:
 			if type(i) is str:
-				if i[-1] == ':':
-					j = j + i + '\n'
-				elif (i[0] == ' ') or (ord(i[0]) == 9):
-					j = j + i + '\n'
-				else:
-					if (j != ''):
-						exec(j + '\n')
-						j = ''
-					exec(i)
-		if ( j != ''):
+				j = j + i + '\n'
+		if (j != ''):
 			exec(j + '\n')
+			j = ''
 	
