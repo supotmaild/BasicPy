@@ -50,10 +50,14 @@ class basic:
 		for i in program_text:
 			if type(i) is str:
 				if i[-1] == ':':
-					j = j + i
+					j = j + i + '\n'
 				elif (i[0] == ' ') or (ord(i[0]) == 9):
-					j = j + i + ';'
+					j = j + i + '\n'
 				else:
-					exec(j)
-					j = ''
+					if (j != ''):
+						exec(j + '\n')
+						j = ''
 					exec(i)
+		if ( j != ''):
+			exec(j + '\n')
+	
