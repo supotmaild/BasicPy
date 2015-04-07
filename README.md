@@ -1,5 +1,10 @@
 # How it works
 
+- BasicPy work by exec() function in Python exec can run multiple line by insert \n between command line
+- this is the most important thing that can help Python to run any loop statement in one line
+- 
+- How to use
+- 
 - Download basic.py in version folder
 - move or copy basic.py file to Python work directory
 - c:\Program Files\Phyton 3.5 for example
