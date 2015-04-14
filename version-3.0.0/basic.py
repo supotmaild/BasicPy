@@ -53,7 +53,7 @@ class basic:
 		import turtle
 		global line_num
 		win = tk.Tk()
-		win.title('FoxPy 3.0 ARM Code Club Ratchaburi')
+		win.title('BasicPy 3.0 ARM Code Club Ratchaburi')
 		frame1 = tk.Frame(
 			master = win,
 			bg = '#808000'
