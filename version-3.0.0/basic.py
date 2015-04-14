@@ -51,7 +51,7 @@ class basic:
 		from tkinter import messagebox
 		import tkinter.scrolledtext as tkst
 		import turtle
-		global line_num
+		global line_num,program_text
 		win = tk.Tk()
 		win.title('BasicPy 3.0 ARM Code Club Ratchaburi')
 		frame1 = tk.Frame(
@@ -76,9 +76,16 @@ class basic:
 		tod = 0
 		line_num = 10
 		line_text = ''
-		# while line_text != 'exit':
-		# print(line_num, end='')
-		line_text = str(line_num)+' '
+		for l in program_text:
+			if type(l) is str:
+				line_text = str(line_num) + ' '
+				line_text = line_text + l +'\n'
+				line_num = line_num + 10
+		if line_text == '':
+			line_text = str(line_num)+' '
+		else:
+			line_text = line_text[0:len(line_text)-1]
+			line_num = 10
 		for l in range(10):
 			program_text.append(l + (line_num - 9))
 		frame1.pack(fill='both', expand='yes')
@@ -97,6 +104,8 @@ class basic:
 		def task():
 			global line_num,tod,program_text
 			data = editArea.get('1.0', 'end-1c')
+			if data.endswith(' ') and tod == 0:
+				data = data[0:len(data)-1]
 			if data.endswith('\n') and tod == 0:
 				atad = ''
 				for i in range(len(data)):
@@ -174,7 +183,6 @@ class basic:
 			if type(i) is str:
 				j = j + i + '\n'
 		if (j != ''):
-			print(j)
 			exec(j + '\n')
 			j = ''
 		return 'Run time ' + str(round(time.time()-t,2)) + ' seconds'
