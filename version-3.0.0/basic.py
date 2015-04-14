@@ -78,7 +78,7 @@ class basic:
 		line_text = ''
 		for l in program_text:
 			if type(l) is str:
-				line_text = str(line_num) + ' '
+				line_text = line_text + str(line_num) + ' '
 				line_text = line_text + l +'\n'
 				line_num = line_num + 10
 		if line_text == '':
