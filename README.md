@@ -83,7 +83,7 @@
 - # add path change workspace C:/Program Files/Python 3.5 for automatic
 
 ![BasicPy3.0.0](https://lh3.googleusercontent.com/-fx6UhRoDLH8/VSzcfQIaWlI/AAAAAAAAAHc/WeI9fZjOd6M/w346-h273/BasicPy3.jpg "BasicPy version 3.0.0")
-- Version 3.0.0
+- Version 3.0.0 (14 April 2015)
 -
 - has a editor that you can arrow up to edit some typing mismatch
 - but continue with old style line number editor
