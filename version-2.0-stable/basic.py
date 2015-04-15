@@ -127,6 +127,9 @@ class basic:
 		for line in read_text:
 			for l in range(10):
 				program_text.append(l + (line_num - 9))
-			program_text[line_num] = line[0:len(line)-1]			
+			if line[-1]!='\n':
+				program_text[line_num] = line							
+			else:
+				program_text[line_num] = line[0:len(line)-1]			
 			line_num = line_num + 10
 		f.close()
