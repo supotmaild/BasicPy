@@ -45,7 +45,8 @@
 ![BasicPy3.0.0](https://lh3.googleusercontent.com/-fx6UhRoDLH8/VSzcfQIaWlI/AAAAAAAAAHc/WeI9fZjOd6M/w346-h273/BasicPy3.jpg "BasicPy version 3.0.0")
 - Version 3.0.0 (14 April 2015)
 -
-- has a editor that you can arrow up to edit some typing mismatch
+- 3 has a editor that you can arrow up to edit some typing mismatch
+- This is a dynamic editor that you never seen before
 - but continue with old style line number editor
 
 
