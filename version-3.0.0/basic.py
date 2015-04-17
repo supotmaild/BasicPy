@@ -6,11 +6,12 @@ class basic:
 	print('==========================================')
 	print(os.getcwd())
 	print('Please change your current workspace')
-	print('Enter will go to C:\Program Files\Python 3.5 automatic')
+	print('Enter will go to C:\Python32 automatic')
 	print('Change  Path:', end='')
 	path_change = input()
-	if path_change == '':
-		os.chdir('C:\Program Files\Python 3.5')
+	if len(path_change) == 1:
+		if ord(path_change) == 13:
+			os.chdir('C:\Python32')
 	else:
 		os.chdir(path_change) 
 	print('Current Path:', end='')
