@@ -42,6 +42,8 @@
 - load('file_name')
 - # add program Title 
 - # add path change workspace C:/Python32 for automatic
+![jpeg.py](https://lh4.googleusercontent.com/-LcdLUpt995Y/VTEJ_kqKFjI/AAAAAAAAAIY/FSGLF7gNxtk/w628-h460-no/python32.jpg "Example file for BasicPy 2")
+- Example file jpeg.py for BasicPy 2
 
 ![BasicPy3.0.0](https://lh3.googleusercontent.com/-fx6UhRoDLH8/VSzcfQIaWlI/AAAAAAAAAHc/WeI9fZjOd6M/w346-h273/BasicPy3.jpg "BasicPy version 3.0.0")
 - Version 3.0.0 Dynamic Editor (14 April 2015)
