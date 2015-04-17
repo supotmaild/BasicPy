@@ -2,12 +2,13 @@
 
 - BasicPy work by exec() function in Python exec can run multiple line by insert \n between command line
 - this is the most important thing that can help Python to run any loop statement in one line
-- 
+- stable version please choose Python 3.2 with PILLOW 2.8.1 
+- Pillow-2.8.1.win32-py3.2.exe download from https://pypi.python.org/pypi/Pillow/2.8.1
 - How to use
 - 
 - Download basic.py in version folder
 - move or copy basic.py file to Python work directory
-- c:\Program Files\Phyton 3.5 for example
+- c:\Python32 for example
 - from Python 
 - >>> import basic
 - >>> basic
@@ -40,7 +41,7 @@
 - save('file_name')
 - load('file_name')
 - # add program Title 
-- # add path change workspace C:/Program Files/Python 3.5 for automatic
+- # add path change workspace C:/Python32 for automatic
 
 ![BasicPy3.0.0](https://lh3.googleusercontent.com/-fx6UhRoDLH8/VSzcfQIaWlI/AAAAAAAAAHc/WeI9fZjOd6M/w346-h273/BasicPy3.jpg "BasicPy version 3.0.0")
 - Version 3.0.0 Dynamic Editor (14 April 2015)
