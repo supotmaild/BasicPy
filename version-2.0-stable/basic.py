@@ -1,4 +1,7 @@
 '''BasicPy 2.0 ARM Code Club Thailand 2015'''
+'''work with Python 3.2 with PILLOW 2.8.1 install'''
+'''download PILLOW https://pypi.python.org/pypi/Pillow/2.8.1'''
+'''Pillow-2.8.1.win32-py3.2.exe'''
 '''stable version 3 April 2015'''
 class basic:
 	import os	
@@ -6,11 +9,12 @@ class basic:
 	print('==========================================')
 	print(os.getcwd())
 	print('Please change your current workspace')
-	print('Enter will go to C:\Program Files\Python 3.5 automatic')
+	print('Enter will go to C:\Python32 automatic')
 	print('Change  Path:', end='')
 	path_change = input()
-	if path_change == '':
-		os.chdir('C:\Program Files\Python 3.5')
+	if len(path_change) == 1:
+		if ord(path_change) == 13:
+			os.chdir('C:\Python32')
 	else:
 		os.chdir(path_change) 
 	print('Current Path:', end='')
