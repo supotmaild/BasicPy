@@ -1,3 +1,8 @@
+-Quick use BasicPy
+-
+- from basic import basic
+- x=basic()                 only 2 steps ready!!
+
 # How it works
 
 - BasicPy work by exec() function in Python exec can run multiple line by insert \n between command line
