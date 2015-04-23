@@ -1,0 +1,4 @@
+- This is a one line Mage Code to run any Python .py program in console mode 23 April 2015
+-
+- def run(f):ff=open(f);exec(''.join(ff.readlines()))
+-
