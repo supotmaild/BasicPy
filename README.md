@@ -6,16 +6,17 @@
 - or You can use this Magic Code!!! >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))  23 Apr 15
 - I call this code is [BasicPy 0.5](https://github.com/supotmaild/BasicPy/tree/master/version-0.5-Magic-Code) use by >>>run('C:\Program Files\Python 3.5\pixel.py') for example
 
-| Google+       |[The Rith Wa Rich](https://plus.google.com/u/0/?tab=XX#112250540879957113516/posts)|
-|---------------|--------------------------------------|
-| visit io page | http://supotmaild.github.io/BasicPy/ |
-
 # How it works
 
 - BasicPy work by exec() function in Python exec can run multiple line by insert \n between command line
 - this is the most important thing that can help Python to run any loop statement in one line
 - stable version please choose Python 3.2 with PILLOW 2.8.1 
 - Pillow-2.8.1.win32-py3.2.exe download from https://pypi.python.org/pypi/Pillow/2.8.1
+ 
+| Google+       |[The Rith Wa Rich](https://plus.google.com/u/0/?tab=XX#112250540879957113516/posts)|
+|---------------|--------------------------------------|
+| visit io page | http://supotmaild.github.io/BasicPy/ |
+
 - How to use
 - 
 - Download basic.py in version folder
