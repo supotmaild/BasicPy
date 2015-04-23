@@ -1,8 +1,8 @@
-- โค๊ดบรรทัดเดียว รันได้ทุกโปรแกรม
+# โค๊ดบรรทัดเดียว รันได้ทุกโปรแกรม
 - 
 - เป็นโค๊ดย่อที่ช่วยการรัน .py บน console ของ python ได้โดยไม่ต้องติดตั้งอะไร
 - เรียกมันว่า BasicPy 0.5 Magic Code
-- >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))
+# >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))
 - 
 - พิมพ์ตามนี้ในคอนโซลเลย
 - ใช้งานโดยเรียก >>>run('C:\Program Files\Python3.5\pixel.py') (ตัวอย่าง)
