@@ -1,3 +1,8 @@
+- โค๊ดบรรทัดเดียว รันได้ทุกโปรแกรม
+- 
+- def run(f):ff=f;exec(''.join(ff.readlines()))
+- ใช้งานโดยเรียก >>>run('C:\Program Files\Python3.5\pixel.py') (ตัวอย่าง)
+
 -เริ่มการใช้งานอย่างด่วน
 -
 - from basic import basic
