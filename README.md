@@ -1,4 +1,4 @@
--Quick use BasicPy
+-Quick use BasicPy      visit io page http://supotmaild.github.io/BasicPy/
 -
 - from basic import basic
 - x=basic()                 only 2 steps ready!!
