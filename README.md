@@ -1,7 +1,3 @@
-| Google+       |[The Rith Wa Rich]('https://plus.google.com/u/0/?tab=XX#112250540879957113516/posts')|
-|---------------|--------------------------------------|
-| visit io page | http://supotmaild.github.io/BasicPy/ |
-
 - Quick use BasicPy
 -
 - from basic import basic
@@ -9,6 +5,9 @@
 
 - or You can use this Magic Code!!! >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))  23 Apr 15
 - I call this code is [BasicPy 0.5](https://github.com/supotmaild/BasicPy/tree/master/version-0.5-Magic-Code) use by >>>run('C:\Program Files\Python 3.5\pixel.py') for example
+| Google+       |[The Rith Wa Rich](https://plus.google.com/u/0/?tab=XX#112250540879957113516/posts)|
+|---------------|--------------------------------------|
+| visit io page | http://supotmaild.github.io/BasicPy/ |
 
 # How it works
 
