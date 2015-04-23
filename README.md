@@ -4,7 +4,7 @@
 - x=basic()                 only 2 steps ready!!
 
 - or You can use this Magic Code!!! >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))  23 Apr 15
-- I call this code is BasicPy 0.5 use by >>>run('C:\Program Files\Python 3.5\pixel.py') for example
+- I call this code is [BasicPy 0.5](https://github.com/supotmaild/BasicPy/tree/master/version-0.5-Magic-Code) use by >>>run('C:\Program Files\Python 3.5\pixel.py') for example
 
 # How it works
 
