@@ -1,33 +1,86 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Basicpy by supotmaild</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Basicpy</h1>
-      <h2 class="project-tagline">Line number code programming Tool for Python interpreter console</h2>
-      <a href="https://github.com/supotmaild/BasicPy" class="btn">View on GitHub</a>
-      <a href="https://github.com/supotmaild/BasicPy/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/supotmaild/BasicPy/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
 
-    <section class="main-content">
-      <h1>
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Basicpy by supotmaild</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/supotmaild/BasicPy">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Basicpy</h1>
+            <h2>Line number code programming Tool for Python interpreter console</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/supotmaild/BasicPy/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/supotmaild/BasicPy/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h2>
+<a id="--quick-use-basicpy" class="anchor" href="#--quick-use-basicpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Quick use BasicPy</h2>
+
+<ul>
+<li>from basic import basic</li>
+<li><p>x=basic()                 only 2 steps ready!!</p></li>
+<li><p>or You can use this Magic Code!!! &gt;&gt;&gt;def run(f):ff=open(f);exec(''.join(ff.readlines()))  23 Apr 15</p></li>
+<li>I call this code is <a href="https://github.com/supotmaild/BasicPy/tree/master/version-0.5-Magic-Code">BasicPy 0.5</a> use by &gt;&gt;&gt;run('C:\Program Files\Python 3.5\pixel.py') for example</li>
+</ul>
+
+<h1>
 <a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h1>
 
 <ul>
 <li>BasicPy work by exec() function in Python exec can run multiple line by insert \n between command line</li>
+<li>this is the most important thing that can help Python to run any loop statement in one line</li>
+<li>stable version please choose Python 3.2 with PILLOW 2.8.1 </li>
+<li>Pillow-2.8.1.win32-py3.2.exe download from <a href="https://pypi.python.org/pypi/Pillow/2.8.1">https://pypi.python.org/pypi/Pillow/2.8.1</a>
+</li>
 </ul>
 
-<h2>
-<a id="--this-is-the-most-important-thing-that-can-help-python-to-run-any-loop-statement-in-one-line" class="anchor" href="#--this-is-the-most-important-thing-that-can-help-python-to-run-any-loop-statement-in-one-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>- this is the most important thing that can help Python to run any loop statement in one line</h2>
+<table>
+<thead>
+<tr>
+<th>Google+</th>
+<th><a href="https://plus.google.com/u/0/?tab=XX#112250540879957113516/posts">The Rith Wa Rich</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visit io page</td>
+<td><a href="http://supotmaild.github.io/BasicPy/">http://supotmaild.github.io/BasicPy/</a></td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a id="--how-to-use" class="anchor" href="#--how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>- How to use</h2>
@@ -35,7 +88,7 @@
 <ul>
 <li>Download basic.py in version folder</li>
 <li>move or copy basic.py file to Python work directory</li>
-<li>c:\Program Files\Phyton 3.5 for example</li>
+<li>c:\Python32 for example</li>
 <li>from Python </li>
 <li>&gt;&gt;&gt; import basic</li>
 <li>&gt;&gt;&gt; basic</li>
@@ -75,16 +128,20 @@
 <li>save('file_name')</li>
 <li>load('file_name')</li>
 <li># add program Title </li>
-<li># add path change workspace C:/Program Files/Python 3.5 for automatic</li>
+<li># add path change workspace C:/Python32 for automatic
+<img src="https://lh4.googleusercontent.com/-LcdLUpt995Y/VTEJ_kqKFjI/AAAAAAAAAIY/FSGLF7gNxtk/w628-h460-no/python32.jpg" alt="jpeg.py" title="Example file for BasicPy 2">
+</li>
+<li>Example file jpeg.py for BasicPy 2</li>
 </ul>
 
 <p><img src="https://lh3.googleusercontent.com/-fx6UhRoDLH8/VSzcfQIaWlI/AAAAAAAAAHc/WeI9fZjOd6M/w346-h273/BasicPy3.jpg" alt="BasicPy3.0.0" title="BasicPy version 3.0.0"></p>
 
 <h2>
-<a id="--version-300-14-april-2015" class="anchor" href="#--version-300-14-april-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Version 3.0.0 (14 April 2015)</h2>
+<a id="--version-300-dynamic-editor-14-april-2015" class="anchor" href="#--version-300-dynamic-editor-14-april-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>- Version 3.0.0 Dynamic Editor (14 April 2015)</h2>
 
 <ul>
-<li>has a editor that you can arrow up to edit some typing mismatch</li>
+<li>3 has a editor that you can arrow up to edit some typing mismatch</li>
+<li>This is a dynamic editor that you never seen before</li>
 <li><p>but continue with old style line number editor</p></li>
 </ul>
 
@@ -101,16 +158,23 @@
 
 <h2>
 <a id="--tel-097-162-0960" class="anchor" href="#--tel-097-162-0960" aria-hidden="true"><span class="octicon octicon-link"></span></a>- tel 097-162-0960</h2>
+      </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/supotmaild/BasicPy">Basicpy</a> is maintained by <a href="https://github.com/supotmaild">supotmaild</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/supotmaild">supotmaild</a> can be found on <a href="https://github.com/supotmaild/BasicPy">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
       </footer>
 
-    </section>
+    </div>
 
-            <script type="text/javascript">
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -123,4 +187,3 @@
 
   </body>
 </html>
-
