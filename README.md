@@ -1,4 +1,7 @@
+|                                                      |
+|------------------------------------------------------|
 | visit io page | http://supotmaild.github.io/BasicPy/ |
+
 - Quick use BasicPy
 -
 - from basic import basic
