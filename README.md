@@ -2,8 +2,8 @@
 -
 - from basic import basic
 - x=basic()                 only 2 steps ready!!
-- 
-- or use can use this Magic Code >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))
+
+- or You can use this Magic Code >>>def run(f):ff=open(f);exec(''.join(ff.readlines()))
 - I call this code is BasicPy 0.5 use by >>>run('C:\Program Files\Python 3.5\pixel.py') for example
 
 # How it works
