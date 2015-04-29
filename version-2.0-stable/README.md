@@ -1,3 +1,6 @@
 - BasicPy Version 2.0
 -
-- for Python 3.4 with PILLOW 
+- Python 3.2 with PILLOW 2.8.1 install''' 
+- download PILLOW https://pypi.python.org/pypi/Pillow/2.8.1
+- '''Pillow-2.8.1.win32-py3.2.exe''' 
+- stable version 3 April 2015 
