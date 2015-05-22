@@ -64,6 +64,14 @@
 - 3 has a editor that you can arrow up to edit some typing mismatch
 - This is a dynamic editor that you never seen before
 - but continue with old style line number editor
+- 
+
+![BasicPy5.6](http://2.bp.blogspot.com/-_AOTFDji9ek/VV7FIADEXkI/AAAAAAAAAQs/VZt7FR5FZnU/s400/basicpy56.jpg "Basic to Python Compliler")
+- Version 5.6 The First Basic to Python Compliler in the world
+- 
+- This version can complier goto 100 into Python 
+- x.run(0) to see complie code from Basic
+- x.run(1) to run code in Python
 
 
 - Contact US
