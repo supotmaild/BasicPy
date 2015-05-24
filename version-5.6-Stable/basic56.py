@@ -1,5 +1,7 @@
-'''BasicPy 5.6 ARM Code Club Thailand 2015'''
+'''BasicPy 5.6.1 ARM Code Club Thailand 2015'''
 '''stable version 29 April 2015'''
+'''5.6.1 update load non Basic code to Basic code automatic'''
+'''5.6.1 add UTF-8 to load standard'''
 class basic:
 	import os
 	print('BasicPy 5.6 by ARM Code Club Thailand 2015')
@@ -266,6 +268,13 @@ class basic:
 					goto_from_real.append(python_program_line[i])
 					goto_reach.append(False)
 					goto_loop.append(False)
+			if len(goto)==0:
+				python_text=''
+				for i in range(len(python_program)):
+					nn=''
+					for j in range(python_level[i]): nn=nn+'  '
+					python_text=python_text+nn+str(python_program[i])+'\n'
+				return python_text
 			g=1
 			for i in range(len(goto)):
 				for j in range(len(python_program)):
@@ -770,14 +779,20 @@ class basic:
 	def load(self, file_name):
 		global line_num, program_text
 		self.new()
-		f = open(file_name, 'r')
+		f = open(file_name, 'r', encoding='UTF-8')
 		read_text = f.readlines()
 		for line in read_text:
 			for l in range(10):
 				program_text.append(l + (line_num - 9))
-			if line[-1]!='\n':
-				program_text[line_num] = line							
+			for k in range(len(line)):
+				if line[k]==' ':break
+			if type(self.parseStr(line[0:k]))==str:
+				add = str(line_num)+' '
 			else:
-				program_text[line_num] = line[0:len(line)-1]			
+				add = ''
+			if line[-1]!='\n':
+				program_text[line_num] = add+line							
+			else:
+				program_text[line_num] = add+line[0:len(line)-1]			
 			line_num = line_num + 10
 		f.close()
