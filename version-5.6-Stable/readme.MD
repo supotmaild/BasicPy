@@ -1,7 +1,8 @@
 - BasicPy 5.6 Stable version for Basic to Python 3.5 Compliler 
 - 
 ![BasicPy5.6](http://2.bp.blogspot.com/-_AOTFDji9ek/VV7FIADEXkI/AAAAAAAAAQs/VZt7FR5FZnU/s400/basicpy56.jpg "Basic to Python Complier")
-
+- Python 3.5 only
+- 
 - Main Concept
 - 
 - The main concept is Superloop to solve problem goto from large to small number 
