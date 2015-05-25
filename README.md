@@ -72,8 +72,9 @@
 - This version can complier goto 100 into Python 
 - x.run(0) to see complie code from Basic
 - x.run(1) to run code in Python
-
-
+- x.code() to see complie code from (BasicPy 5.6.2  -update)
+- x.run() to run code in Python (BasicPy 5.6.2  -update)
+- 
 - Contact US
 - 
 - ARM Code Club Ratchaburi Thailand
