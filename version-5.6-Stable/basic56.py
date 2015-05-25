@@ -1,7 +1,8 @@
-'''BasicPy 5.6.1 ARM Code Club Thailand 2015'''
+'''BasicPy 5.6.2 ARM Code Club Thailand 2015'''
 '''stable version 29 April 2015'''
 '''5.6.1 update load non Basic code to Basic code automatic'''
 '''5.6.1 add UTF-8 to load standard'''
+'''5.6.2 add UTF-8 to save standard'''
 class basic:
 	import os
 	print('BasicPy 5.6 by ARM Code Club Thailand 2015')
@@ -227,510 +228,510 @@ class basic:
 		for i in program_text:
 			if type(i) is str:
 				print(i)
-	def run(self, i):
-		def real():
-			basic_program_line = []
-			python_program_line = []
-			python_program_add = []
-			python_program = []
-			python_level = []
-			goto = []
-			goto_real = []
-			goto_from = []
-			goto_from_real = []
-			goto_reach = []
-			goto_loop = []
-			line = 0
-			for i in range(len(program_text)):
-				if type(program_text[i])==str:
-					for j in range(len(program_text[i])):
-						if program_text[i][j]==' ': break
-					for k in range(j+1,len(program_text[i])):
-						if program_text[i][k]!=chr(9): break
-					try: 
-						if k!=len(program_text[i])-1:
-							basic_program_line.append(int(program_text[i][0:j]))
-							python_program_line.append(line)
-							python_program_add.append(0)
-							python_program.append(program_text[i][k:len(program_text[i])])
-							python_level.append(k-(j+1))
-					except:
-						pass
-					line = line + 1
-			for i in range(len(python_program)):
-				if python_program[i][0:4]=='goto':
-					gt = int(python_program[i][5:len(python_program[i])])
-					for j in range(len(python_program)):
-						if basic_program_line[j]==gt: break
-					goto.append(gt)
-					goto_real.append(j)
-					goto_from.append(basic_program_line[i])
-					goto_from_real.append(python_program_line[i])
-					goto_reach.append(False)
-					goto_loop.append(False)
-			if len(goto)==0:
-				python_text=''
-				for i in range(len(python_program)):
-					nn=''
-					for j in range(python_level[i]): nn=nn+'  '
-					python_text=python_text+nn+str(python_program[i])+'\n'
-				return python_text
-			g=1
-			for i in range(len(goto)):
+	def real(self):
+		basic_program_line = []
+		python_program_line = []
+		python_program_add = []
+		python_program = []
+		python_level = []
+		goto = []
+		goto_real = []
+		goto_from = []
+		goto_from_real = []
+		goto_reach = []
+		goto_loop = []
+		line = 0
+		for i in range(len(program_text)):
+			if type(program_text[i])==str:
+				for j in range(len(program_text[i])):
+					if program_text[i][j]==' ': break
+				for k in range(j+1,len(program_text[i])):
+					if program_text[i][k]!=chr(9): break
+				try: 
+					if k!=len(program_text[i])-1:
+						basic_program_line.append(int(program_text[i][0:j]))
+						python_program_line.append(line)
+						python_program_add.append(0)
+						python_program.append(program_text[i][k:len(program_text[i])])
+						python_level.append(k-(j+1))
+				except:
+					pass
+				line = line + 1
+		for i in range(len(python_program)):
+			if python_program[i][0:4]=='goto':
+				gt = int(python_program[i][5:len(python_program[i])])
 				for j in range(len(python_program)):
-					if goto_from_real[i]==python_program_line[j] and python_program_add[j]==0:
-						# 10 goto 20
-						if goto_real[i]>goto_from_real[i]:
-							ol=python_level[j]
-							ll=python_level[j]
-							python_program[j]='g'+str(g)+'=True #'+str(goto[i])
-							basic_program_line.insert(j+1,0)
-							python_program_line.insert(j+1,python_program_line[j]+1)
-							python_program_add.insert(j+1,g)
-							python_program.insert(j+1,'if not(g'+str(g)+'):')
-							python_level.insert(j+1,ll)
-							ll=ll+1
-							for k in range(j+2,len(python_program)):
-								if (ol<=python_level[k] or (ol==python_level[k] and python_program[k][0:5]=='else:'))and python_program_line[k]<goto_real[i]:
-									python_level[k]=python_level[k]+1
-								else: break
-							g=g+1
-							break
-					if goto_real[i]==python_program_line[j] and python_program_add[j]==0:
-						# 20 goto 10
-						if goto_from_real[i]>goto_real[i]:
-							same_loop = False
-							for ss in range(len(python_program)):
-								# \ from stackoverflow Q:53162 answer by Harley Holcombe 9 Sep 2008
-								if python_program_line[ss]==python_program_line[j] \
-								and python_program_add[ss]!=0 and python_program[ss][0:11]=='while True:':
-									same_loop = True
-									break
-							if not(same_loop):
-								basic_program_line.insert(j,0)
-								python_program_line.insert(j,python_program_line[j])
-								python_program_add.insert(j,g)
-								python_program.insert(j,'while True: #goto'+str(goto[i]))
-								jj=python_level[j]
-								python_level.insert(j,python_level[j])
-								for l in range(j+1,len(python_program)):
-									if jj<=python_level[l]:
-										python_level[l]=python_level[l]+1
-									else: break
-							for k in range(j+2,len(python_program)):
-								if goto_from_real[i]==python_program_line[k] and python_program_add[k]==0: break
-							ol=python_level[k]
-							ll=python_level[k]
-							python_program[k]='g'+str(g)+'=True #'+str(goto[i])
-							if python_level[k]!=0:
-								basic_program_line.insert(k+1,0)
-								python_program_line.insert(k+1,python_program_line[k]+1)
-								python_program_add.insert(k+1,g)
-								python_program.insert(k+1,'if not(g'+str(g)+'):')
-								python_level.insert(k+1,ll)
-								ll=ll+1
-								g=g+1
-								for l in range(k+2,len(python_program)):
-									if ol<=python_level[l]:
-										python_level[l]=python_level[l]+1
-									else: break
-							break
-			basic_program_line.insert(0,0)
-			python_program_line.insert(0,0)
-			python_program.insert(0,'while True: #Super Loop')
-			python_level.insert(0,0)
-			for j in range(1,len(python_program)):
-				python_level[j]=python_level[j]+1
-			python_loop = []
-			python_loop_level = []
-			python_loop_start = []
-			python_loop_end = []
+					if basic_program_line[j]==gt: break
+				goto.append(gt)
+				goto_real.append(j)
+				goto_from.append(basic_program_line[i])
+				goto_from_real.append(python_program_line[i])
+				goto_reach.append(False)
+				goto_loop.append(False)
+		if len(goto)==0:
+			python_text=''
+			for i in range(len(python_program)):
+				nn=''
+				for j in range(python_level[i]): 
+					nn=nn+'  '
+					python_text=python_text+nn+str(python_program[i])+'\n'
+			return python_text
+		g=1
+		for i in range(len(goto)):
 			for j in range(len(python_program)):
-				if python_program[j][0:3]=='for' or python_program[j][0:5]=='While':
-					python_loop.append('for')
-					python_loop_level.append(python_level[j])
-					python_loop_start.append(python_program_line[j])
-					for k in range(j+1,len(python_program)):
-						if python_level[k]<=python_level[j] and python_program[k][0:5]!='else:': break
-					python_loop_end.append(python_program_line[k])
-				elif python_program[j][0:2]=='if':
-					python_loop.append('if')
-					python_loop_level.append(python_level[j])
-					python_loop_start.append(python_program_line[j])
-					for k in range(j+1,len(python_program)):
-						if python_level[k]<=python_level[j] and python_program[k][0:5]!='else:': break
-					python_loop_end.append(python_program_line[k])
-#			for j in range(len(python_loop)):
-#				print(python_loop_level[j],end='')
-#				print(' ',end='')
-#				print(python_loop[j],end='')
-#				print(' ',end='')
-#				print(python_loop_start[j],end='')
-#				print(' ',end='')
-#				print(python_loop_end[j])
-			jo=0
-			while True:
-				ByPass = True
-				for j in range(jo,len(python_program)):
-					gg=''
-					if python_program[j][0:3]=='for' or python_program[j][0:5]=='while':
-						jo=j+1
+				if goto_from_real[i]==python_program_line[j] and python_program_add[j]==0:
+					# 10 goto 20
+					if goto_real[i]>goto_from_real[i]:
 						ol=python_level[j]
-						for kk in range(j+1,len(python_program)):
-							if python_level[kk]<=ol: break
-						for jj in range(len(goto)):
-							if goto_from_real[jj]>python_program_line[j] and goto_real[jj]>=python_program_line[kk]:
-								if gg=='':
-									gg = 'g'+str(jj+1)
-								else:
-									gg = gg+' or g'+str(jj+1)
-						if gg!='' and ol+1>1:
-							basic_program_line.insert(kk,0)
-							python_program_line.insert(kk,python_program_line[kk])
-							python_program.insert(kk,'if '+gg+': break')
-							python_level.insert(kk,ol+1)
-							ByPass = False
-				if ByPass: break
-			if len(python_level)>0:
-				ol=python_level[0]
+						ll=python_level[j]
+						python_program[j]='g'+str(g)+'=True #'+str(goto[i])
+						basic_program_line.insert(j+1,0)
+						python_program_line.insert(j+1,python_program_line[j]+1)
+						python_program_add.insert(j+1,g)
+						python_program.insert(j+1,'if not(g'+str(g)+'):')
+						python_level.insert(j+1,ll)
+						ll=ll+1
+						for k in range(j+2,len(python_program)):
+							if (ol<=python_level[k] or (ol==python_level[k] and python_program[k][0:5]=='else:'))and python_program_line[k]<goto_real[i]:
+								python_level[k]=python_level[k]+1
+							else: break
+						g=g+1
+						break
+				if goto_real[i]==python_program_line[j] and python_program_add[j]==0:
+					# 20 goto 10
+					if goto_from_real[i]>goto_real[i]:
+						same_loop = False
+						for ss in range(len(python_program)):
+							# \ from stackoverflow Q:53162 answer by Harley Holcombe 9 Sep 2008
+							if python_program_line[ss]==python_program_line[j] \
+							and python_program_add[ss]!=0 and python_program[ss][0:11]=='while True:':
+								same_loop = True
+								break
+						if not(same_loop):
+							basic_program_line.insert(j,0)
+							python_program_line.insert(j,python_program_line[j])
+							python_program_add.insert(j,g)
+							python_program.insert(j,'while True: #goto'+str(goto[i]))
+							jj=python_level[j]
+							python_level.insert(j,python_level[j])
+							for l in range(j+1,len(python_program)):
+								if jj<=python_level[l]:
+									python_level[l]=python_level[l]+1
+								else: break
+						for k in range(j+2,len(python_program)):
+							if goto_from_real[i]==python_program_line[k] and python_program_add[k]==0: break
+						ol=python_level[k]
+						ll=python_level[k]
+						python_program[k]='g'+str(g)+'=True #'+str(goto[i])
+						if python_level[k]!=0:
+							basic_program_line.insert(k+1,0)
+							python_program_line.insert(k+1,python_program_line[k]+1)
+							python_program_add.insert(k+1,g)
+							python_program.insert(k+1,'if not(g'+str(g)+'):')
+							python_level.insert(k+1,ll)
+							ll=ll+1
+							g=g+1
+							for l in range(k+2,len(python_program)):
+								if ol<=python_level[l]:
+									python_level[l]=python_level[l]+1
+								else: break
+						break
+		basic_program_line.insert(0,0)
+		python_program_line.insert(0,0)
+		python_program.insert(0,'while True: #Super Loop')
+		python_level.insert(0,0)
+		for j in range(1,len(python_program)):
+			python_level[j]=python_level[j]+1
+		python_loop = []
+		python_loop_level = []
+		python_loop_start = []
+		python_loop_end = []
+		for j in range(len(python_program)):
+			if python_program[j][0:3]=='for' or python_program[j][0:5]=='While':
+				python_loop.append('for')
+				python_loop_level.append(python_level[j])
+				python_loop_start.append(python_program_line[j])
+				for k in range(j+1,len(python_program)):
+					if python_level[k]<=python_level[j] and python_program[k][0:5]!='else:': break
+				python_loop_end.append(python_program_line[k])
+			elif python_program[j][0:2]=='if':
+				python_loop.append('if')
+				python_loop_level.append(python_level[j])
+				python_loop_start.append(python_program_line[j])
+				for k in range(j+1,len(python_program)):
+					if python_level[k]<=python_level[j] and python_program[k][0:5]!='else:': break
+				python_loop_end.append(python_program_line[k])
+#		for j in range(len(python_loop)):
+#			print(python_loop_level[j],end='')
+#			print(' ',end='')
+#			print(python_loop[j],end='')
+#			print(' ',end='')
+#			print(python_loop_start[j],end='')
+#			print(' ',end='')
+#			print(python_loop_end[j])
+		jo=0
+		while True:
+			ByPass = True
+			for j in range(jo,len(python_program)):
+				gg=''
+				if python_program[j][0:3]=='for' or python_program[j][0:5]=='while':
+					jo=j+1
+					ol=python_level[j]
+					for kk in range(j+1,len(python_program)):
+						if python_level[kk]<=ol: break
+					for jj in range(len(goto)):
+						if goto_from_real[jj]>python_program_line[j] and goto_real[jj]>=python_program_line[kk]:
+							if gg=='':
+								gg = 'g'+str(jj+1)
+							else:
+								gg = gg+' or g'+str(jj+1)
+					if gg!='' and ol+1>1:
+						basic_program_line.insert(kk,0)
+						python_program_line.insert(kk,python_program_line[kk])
+						python_program.insert(kk,'if '+gg+': break')
+						python_level.insert(kk,ol+1)
+						ByPass = False
+			if ByPass: break
+		if len(python_level)>0:
+			ol=python_level[0]
+		else:
+			ol=0
+		loop_now=''
+		level_now=0
+		python_add_line=[]
+		python_add=[]
+		python_add_level=[]
+		for j in range(len(python_program)):
+			if python_level[j]<ol and loop_now=='if':
+				plus=0
+				for k in range(len(python_add)):
+					if python_add_line[k]>=j: 
+						python_add_line[k]=python_add_line[k]+1
+					else:
+						plus=plus+1
+				python_add_line.append(j+plus)
+				python_add.append('pass')
+				python_add_level.append(level_now+1)
+			ol=python_level[j]	
+			if python_program[j][0:2]=='if' and python_program[j][-5:]!='break': 
+				loop_now='if'
+				level_now=python_level[j]
 			else:
-				ol=0
-			loop_now=''
-			level_now=0
-			python_add_line=[]
-			python_add=[]
-			python_add_level=[]
-			for j in range(len(python_program)):
-				if python_level[j]<ol and loop_now=='if':
-					plus=0
-					for k in range(len(python_add)):
-						if python_add_line[k]>=j: 
-							python_add_line[k]=python_add_line[k]+1
-						else:
-							plus=plus+1
-					python_add_line.append(j+plus)
-					python_add.append('pass')
-					python_add_level.append(level_now+1)
-				ol=python_level[j]	
-				if python_program[j][0:2]=='if' and python_program[j][-5:]!='break': 
-					loop_now='if'
-					level_now=python_level[j]
-				else:
-					loop_now=''			
-			for j in range(len(python_add)):
-				basic_program_line.insert(python_add_line[j],0)
-				python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
-				python_program.insert(python_add_line[j],python_add[j])
-				python_level.insert(python_add_line[j],python_add_level[j])
+				loop_now=''			
+		for j in range(len(python_add)):
+			basic_program_line.insert(python_add_line[j],0)
+			python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
+			python_program.insert(python_add_line[j],python_add[j])
+			python_level.insert(python_add_line[j],python_add_level[j])
 
-			python_add_line=[]
-			python_add=[]
-			python_add_level=[]
-			sb = ''
-			for j in range(len(goto)):
-				super_break=False
-				for k in range(len(python_program)):
-					if python_program_line[k]>=goto_from_real[j]: break
-				for kk in range(k,len(python_program)):
-					jj=1
-					if j>10: jj=2
-					if j>100: jj=3
-					if python_program[kk][0:5]!='while' and python_program[kk][0:3]!='for' and \
-					python_program[kk][0:2]!='if' and python_program[kk][0:4]!='pass' and \
-					python_program[kk][0:4]!='else' and python_program[kk][0:4]!='elif':
-						ol=python_level[kk]
-						for kkk in range(kk,len(python_program)):
-							if python_level[kkk]<ol or python_level[kkk]==1: break
-						if (python_program_line[kkk]<goto_real[j] and goto_real[j]>goto_from_real[j]) or \
-						(python_program_line[kkk]>goto_real[j] and goto_real[j]<goto_from_real[j]):
+		python_add_line=[]
+		python_add=[]
+		python_add_level=[]
+		sb = ''
+		for j in range(len(goto)):
+			super_break=False
+			for k in range(len(python_program)):
+				if python_program_line[k]>=goto_from_real[j]: break
+			for kk in range(k,len(python_program)):
+				jj=1
+				if j>10: jj=2
+				if j>100: jj=3
+				if python_program[kk][0:5]!='while' and python_program[kk][0:3]!='for' and \
+				python_program[kk][0:2]!='if' and python_program[kk][0:4]!='pass' and \
+				python_program[kk][0:4]!='else' and python_program[kk][0:4]!='elif':
+					ol=python_level[kk]
+					for kkk in range(kk,len(python_program)):
+						if python_level[kkk]<ol or python_level[kkk]==1: break
+					if (python_program_line[kkk]<goto_real[j] and goto_real[j]>goto_from_real[j]) or \
+					(python_program_line[kkk]>goto_real[j] and goto_real[j]<goto_from_real[j]):
+						aa=(-1)
+						find=0
+						for aa in range(len(python_add)):
+							if python_add_line[aa]==kk:
+								find=1 
+								break
+						if find==1:
+							python_add[aa]=python_add[aa][0:len(python_add[aa])-5]+' and not(g'+str(j+1)+'): #if'
+						else:
+							python_add_line.append(kk)
+							python_add.append('if not(g'+str(j+1)+'): #if')
+							python_add_level.append(python_level[kk])
+				if python_program[kk][0:4+jj]=='if g'+str(j+1):
+					ol=python_level[kk]
+					for kkk in range(kk,len(python_program)):
+						if python_level[kkk]<ol: break
+					if python_program_line[kkk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
+						super_break=True
+						#break						
+				if python_program[kk][0:8+jj]=='if not(g'+str(j+1):
+					ol=python_level[kk]
+					for kkk in range(kk,len(python_program)):
+						if python_level[kkk]<ol: break
+					if python_program_line[kkk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
+						super_break=True
+						#break
+				if python_program[kk][0:5]=='while' or python_program[kk][0:3]=='for' or \
+				(python_program[kk][0:2]=='if' and python_program[kk][0:8+jj]!='if not(g'+str(j+1)):
+					ol=python_level[kk]
+					for kkk in range(kk,len(python_program)):
+						if python_level[kkk]<ol: break
+					if python_program_line[kkk]<goto_real[j]:
+						for ss in range(len(python_program[kk])):
+							if python_program[kk][ss]==':': break
+						if python_program[kk][0:2]=='if':
+							if python_program[kk][0:8]=='if not(g':
+								python_program[kk]=\
+								python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #if'
+							elif python_program[kk][0:4]=='if g':
+								pass
+							#	python_program[kk]=\
+							#	python_program[kk][0:ss]+' or g'+str(j+1)+': break'									
+							else:
+								if python_program[kk][3]=='(':
+									python_program[kk]=\
+									python_program[kk][0:ss]+' and not(g'+str(j+1)+'):'
+								else:
+									python_program[kk]=python_program[kk][0:3]+'('+\
+									python_program[kk][3:ss]+') and not(g'+str(j+1)+'):'
+						elif python_program[kk][0:5]=='while' and python_program[kk][12:23]!='#Super Loop':
+							python_program[kk]=\
+							python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #while'
+						elif python_program[kk][0:3]=='for':
+							python_program[kk]=\
+							python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #for'
+				if python_program_line[kk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
+					super_break=True
+					#break
+
+			if not(super_break):
+				if sb=='':
+					sb = 'g'+str(j+1)
+				else:
+					sb = sb+' or g'+str(j+1)
+				for kkk in range(len(python_program)): # Knock Out Loop
+					if python_program[kkk][0:5]!='while' and python_program[kkk][0:3]!='for' and \
+					python_program[kkk][0:2]!='if' and python_program[kkk][0:4]!='pass' and \
+					python_program[kkk][0:4]!='else' and python_program[kkk][0:4]!='elif':
+						if python_program_line[kkk]<goto_real[j]:
 							aa=(-1)
 							find=0
 							for aa in range(len(python_add)):
-								if python_add_line[aa]==kk:
+								if python_add_line[aa]==kkk:
 									find=1 
 									break
 							if find==1:
 								python_add[aa]=python_add[aa][0:len(python_add[aa])-5]+' and not(g'+str(j+1)+'): #if'
 							else:
-								python_add_line.append(kk)
+								python_add_line.append(kkk)
 								python_add.append('if not(g'+str(j+1)+'): #if')
-								python_add_level.append(python_level[kk])
-					if python_program[kk][0:4+jj]=='if g'+str(j+1):
-						ol=python_level[kk]
-						for kkk in range(kk,len(python_program)):
-							if python_level[kkk]<ol: break
-						if python_program_line[kkk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
-							super_break=True
-							#break						
-					if python_program[kk][0:8+jj]=='if not(g'+str(j+1):
-						ol=python_level[kk]
-						for kkk in range(kk,len(python_program)):
-							if python_level[kkk]<ol: break
-						if python_program_line[kkk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
-							super_break=True
-							#break
-					if python_program[kk][0:5]=='while' or python_program[kk][0:3]=='for' or \
-					(python_program[kk][0:2]=='if' and python_program[kk][0:8+jj]!='if not(g'+str(j+1)):
-						ol=python_level[kk]
-						for kkk in range(kk,len(python_program)):
-							if python_level[kkk]<ol: break
-						if python_program_line[kkk]<goto_real[j]:
-							for ss in range(len(python_program[kk])):
-								if python_program[kk][ss]==':': break
-							if python_program[kk][0:2]=='if':
-								if python_program[kk][0:8]=='if not(g':
-									python_program[kk]=\
-									python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #if'
-								elif python_program[kk][0:4]=='if g':
+								python_add_level.append(python_level[kkk])
+					if python_program[kkk][0:5]=='while' or python_program[kkk][0:3]=='for' or \
+					(python_program[kkk][0:2]=='if' and python_program[kkk][0:8+jj]!='if not(g'+str(j+1)):
+						ol=python_level[kkk]
+						for kkkk in range(kkk,len(python_program)):
+							if python_level[kkkk]<ol: break
+						if python_program_line[kkkk]<goto_real[j]:
+							for ss in range(len(python_program[kkk])):
+								if python_program[kkk][ss]==':': break
+							for sss in range(len(python_program[kkk])):
+								if python_program[kkk][sss]=='#': break
+							if python_program[kkk][0:2]=='if':
+								if python_program[kkk][0:8]=='if not(g':
+									python_program[kkk]=\
+									python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #if'
+								elif python_program[kkk][0:4]=='if g':
 									pass
-								#	python_program[kk]=\
-								#	python_program[kk][0:ss]+' or g'+str(j+1)+': break'									
+								#	python_program[kkk]=\
+								#	python_program[kkk][0:ss]+' or g'+str(j+1)+': break'									
 								else:
-									if python_program[kk][3]=='(':
-										python_program[kk]=\
-										python_program[kk][0:ss]+' and not(g'+str(j+1)+'):'
+									if python_program[kkk][3]=='(':
+	 									python_program[kkk]=\
+										python_program[kkk][0:ss]+' and not(g'+str(j+1)+'):'
 									else:
-										python_program[kk]=python_program[kk][0:3]+'('+\
-										python_program[kk][3:ss]+') and not(g'+str(j+1)+'):'
-							elif python_program[kk][0:5]=='while' and python_program[kk][12:23]!='#Super Loop':
-								python_program[kk]=\
-								python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #while'
-							elif python_program[kk][0:3]=='for':
-								python_program[kk]=\
-								python_program[kk][0:ss]+' and not(g'+str(j+1)+'): #for'
-					if python_program_line[kk]>=goto_real[j] and goto_real[j]>goto_from_real[j]:
-						super_break=True
-						#break
+										python_program[kkk]=python_program[kkk][0:3]+'('+\
+										python_program[kkk][3:ss]+') and not(g'+str(j+1)+'):'
+							elif python_program[kkk][0:5]=='while' and python_program[kkk][12:23]!='#Super Loop':
+								python_program[kkk]=\
+								python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #while'
+							elif python_program[kkk][0:3]=='for':
+								python_program[kkk]=\
+								python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #for'
 
-				if not(super_break):
-					if sb=='':
-						sb = 'g'+str(j+1)
+		poppop=[]
+		for j in range(len(python_add)):
+			popup=1
+			for jj in range(j+1,len(python_add)):
+				if python_add_level[jj]==python_add_level[j] and \
+				python_add[jj]==python_add[j]:
+					pp=0
+					if python_add_line[jj]>python_add_line[j]:
+						stj=python_add_line[j]
+						enj=python_add_line[jj]
 					else:
-						sb = sb+' or g'+str(j+1)
-					for kkk in range(len(python_program)): # Knock Out Loop
-						if python_program[kkk][0:5]!='while' and python_program[kkk][0:3]!='for' and \
-						python_program[kkk][0:2]!='if' and python_program[kkk][0:4]!='pass' and \
-						python_program[kkk][0:4]!='else' and python_program[kkk][0:4]!='elif':
-							if python_program_line[kkk]<goto_real[j]:
-								aa=(-1)
-								find=0
-								for aa in range(len(python_add)):
-									if python_add_line[aa]==kkk:
-										find=1 
-										break
-								if find==1:
-									python_add[aa]=python_add[aa][0:len(python_add[aa])-5]+' and not(g'+str(j+1)+'): #if'
-								else:
-									python_add_line.append(kkk)
-									python_add.append('if not(g'+str(j+1)+'): #if')
-									python_add_level.append(python_level[kkk])
-						if python_program[kkk][0:5]=='while' or python_program[kkk][0:3]=='for' or \
-						(python_program[kkk][0:2]=='if' and python_program[kkk][0:8+jj]!='if not(g'+str(j+1)):
-							ol=python_level[kkk]
-							for kkkk in range(kkk,len(python_program)):
-								if python_level[kkkk]<ol: break
-							if python_program_line[kkkk]<goto_real[j]:
-								for ss in range(len(python_program[kkk])):
-									if python_program[kkk][ss]==':': break
-								for sss in range(len(python_program[kkk])):
-									if python_program[kkk][sss]=='#': break
-								if python_program[kkk][0:2]=='if':
-									if python_program[kkk][0:8]=='if not(g':
-										python_program[kkk]=\
-										python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #if'
-									elif python_program[kkk][0:4]=='if g':
-										pass
-									#	python_program[kkk]=\
-									#	python_program[kkk][0:ss]+' or g'+str(j+1)+': break'									
-									else:
-										if python_program[kkk][3]=='(':
-	 										python_program[kkk]=\
-											python_program[kkk][0:ss]+' and not(g'+str(j+1)+'):'
-										else:
-											python_program[kkk]=python_program[kkk][0:3]+'('+\
-											python_program[kkk][3:ss]+') and not(g'+str(j+1)+'):'
-								elif python_program[kkk][0:5]=='while' and python_program[kkk][12:23]!='#Super Loop':
-									python_program[kkk]=\
-									python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #while'
-								elif python_program[kkk][0:3]=='for':
-									python_program[kkk]=\
-									python_program[kkk][0:ss]+' and not(g'+str(j+1)+'): #for'
-
-			poppop=[]
-			for j in range(len(python_add)):
-				popup=1
-				for jj in range(j+1,len(python_add)):
-					if python_add_level[jj]==python_add_level[j] and \
-					python_add[jj]==python_add[j]:
-						pp=0
-						if python_add_line[jj]>python_add_line[j]:
-							stj=python_add_line[j]
-							enj=python_add_line[jj]
-						else:
-							stj=python_add_line[jj]
-							enj=python_add_line[j]
-						if stj==enj:
-							pp=1
-						else:
-							ol=python_level[stj]
-							for cc in range(stj,enj):
-								if python_level[cc]!=ol:
-									pp=1
-									break
-						for p in range(len(poppop)):
-							if poppop[p]==jj:
+						stj=python_add_line[jj]
+						enj=python_add_line[j]
+					if stj==enj:
+						pp=1
+					else:
+						ol=python_level[stj]
+						for cc in range(stj,enj):
+							if python_level[cc]!=ol:
 								pp=1
 								break
-						if pp==0:
-							poppop.append(jj)
-						popup=popup+1
-			for j in range(len(poppop)):
-				python_add_line.pop(poppop[j])
-				python_add.pop(poppop[j])
-				python_add_level.pop(poppop[j])
-				for p in range(j+1,len(poppop)):
-					if poppop[p]>j:
-						poppop[p]=poppop[p]-1
-			for j in range(len(python_add)):
-				for jj in range(j+1,len(python_add)):
-					if python_add_line[jj]>python_add_line[j]:
-						python_add_line[jj]=python_add_line[jj]+1
-			for j in range(len(python_add)):
-				basic_program_line.insert(python_add_line[j],0)
-				python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
-				python_program.insert(python_add_line[j],python_add[j])
-				python_level.insert(python_add_line[j],python_add_level[j])
-			python_add_line=[]
-			python_add=[]
-			python_add_level=[]
-			for j in range(len(python_program)):
-				if python_program[j][-4:]=='#for':
-					for kk in range(len(python_program[j])):
-						if python_program[j][kk:kk+9]=='and not(g': break
-					if python_program[j+1]=='if '+python_program[j][kk+4:-5]+' #if':
-						pass
+					for p in range(len(poppop)):
+						if poppop[p]==jj:
+							pp=1
+							break
+					if pp==0:
+						poppop.append(jj)
+					popup=popup+1
+		for j in range(len(poppop)):
+			python_add_line.pop(poppop[j])
+			python_add.pop(poppop[j])
+			python_add_level.pop(poppop[j])
+			for p in range(j+1,len(poppop)):
+				if poppop[p]>j:
+					poppop[p]=poppop[p]-1
+		for j in range(len(python_add)):
+			for jj in range(j+1,len(python_add)):
+				if python_add_line[jj]>python_add_line[j]:
+					python_add_line[jj]=python_add_line[jj]+1
+		for j in range(len(python_add)):
+			basic_program_line.insert(python_add_line[j],0)
+			python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
+			python_program.insert(python_add_line[j],python_add[j])
+			python_level.insert(python_add_line[j],python_add_level[j])
+		python_add_line=[]
+		python_add=[]
+		python_add_level=[]
+		for j in range(len(python_program)):
+			if python_program[j][-4:]=='#for':
+				for kk in range(len(python_program[j])):
+					if python_program[j][kk:kk+9]=='and not(g': break
+				if python_program[j+1]=='if '+python_program[j][kk+4:-5]+' #if':
+					pass
+				else:
+					python_add_line.append(j+1)
+					python_add.append('if '+python_program[j][kk+4:-5]+' #if')				
+					python_add_level.append(python_level[j]+1)
+				python_program[j]=python_program[j][0:kk-1]+':'
+			if python_program[j][-6:]=='#while':
+				for kk in range(len(python_program[j])):
+					if python_program[j][kk:kk+9]=='and not(g': break
+				if python_program[j+1]=='if '+python_program[j][kk+4:-7]+' #if':
+					pass
+				else:
+					python_add_line.append(j+1)
+					python_add.append('if '+python_program[j][kk+4:-7]+' #if')				
+					python_add_level.append(python_level[j]+1)
+				python_program[j]=python_program[j][0:kk-1]+':'
+		for j in range(len(python_add)):
+			for jj in range(j+1,len(python_add)):
+				if python_add_line[jj]>python_add_line[j]:
+					python_add_line[jj]=python_add_line[jj]+1
+		for j in range(len(python_add)):
+			basic_program_line.insert(python_add_line[j],0)
+			python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
+			python_program.insert(python_add_line[j],python_add[j])
+			python_level.insert(python_add_line[j],python_add_level[j])
+		for j in range(len(python_program)):
+			if python_program[j][-3:]=='#if':
+				python_program[j]=python_program[j][0:-4]
+				ol=python_level[j]
+				for jj in range(j+1,len(python_program)):
+					if python_level[jj]<ol:
+						break
+					elif python_program[jj][0:2]=='if' and python_level[jj]==ol:
+						break
+					elif python_program[jj][0:3]=='for' and python_level[jj]==ol:
+						break
+					elif python_program[jj][0:5]=='while' and python_level[jj]==ol:
+						break
 					else:
-						python_add_line.append(j+1)
-						python_add.append('if '+python_program[j][kk+4:-5]+' #if')				
-						python_add_level.append(python_level[j]+1)
-					python_program[j]=python_program[j][0:kk-1]+':'
-				if python_program[j][-6:]=='#while':
-					for kk in range(len(python_program[j])):
-						if python_program[j][kk:kk+9]=='and not(g': break
-					if python_program[j+1]=='if '+python_program[j][kk+4:-7]+' #if':
-						pass
-					else:
-						python_add_line.append(j+1)
-						python_add.append('if '+python_program[j][kk+4:-7]+' #if')				
-						python_add_level.append(python_level[j]+1)
-					python_program[j]=python_program[j][0:kk-1]+':'
-			for j in range(len(python_add)):
-				for jj in range(j+1,len(python_add)):
-					if python_add_line[jj]>python_add_line[j]:
-						python_add_line[jj]=python_add_line[jj]+1
-			for j in range(len(python_add)):
-				basic_program_line.insert(python_add_line[j],0)
-				python_program_line.insert(python_add_line[j],python_program_line[python_add_line[j]])
-				python_program.insert(python_add_line[j],python_add[j])
-				python_level.insert(python_add_line[j],python_add_level[j])
-			for j in range(len(python_program)):
-				if python_program[j][-3:]=='#if':
-					python_program[j]=python_program[j][0:-4]
-					ol=python_level[j]
-					for jj in range(j+1,len(python_program)):
-						if python_level[jj]<ol:
-							break
-						elif python_program[jj][0:2]=='if' and python_level[jj]==ol:
-							break
-						elif python_program[jj][0:3]=='for' and python_level[jj]==ol:
-							break
-						elif python_program[jj][0:5]=='while' and python_level[jj]==ol:
-							break
+						python_level[jj]=python_level[jj]+1
+
+		for j in range(len(goto)):
+			gx=goto_real[j]
+			for k in range(len(python_program)):
+				if python_program_line[k]==goto_real[j]:
+					for kk in range(k+1,len(python_program)):
+						if python_program_line[kk]!=gx or \
+						python_program[kk][0:8]=='if not(g': break
+					if not(goto_reach[j]):
+						if kk+1>=len(python_program):
+							python_program_line.append(python_program_line[kk])
+							python_program.append('g'+str(j+1)+'=False')
+							python_level.append(1)
 						else:
-							python_level[jj]=python_level[jj]+1
+							python_program_line.insert(kk+1,python_program_line[kk+1])
+							python_program.insert(kk+1,'g'+str(j+1)+'=False')
+							python_level.insert(kk+1,python_level[kk+1])
+						goto_reach[j]=True
 
-			for j in range(len(goto)):
-				gx=goto_real[j]
-				for k in range(len(python_program)):
-					if python_program_line[k]==goto_real[j]:
-						for kk in range(k+1,len(python_program)):
-							if python_program_line[kk]!=gx or \
-							python_program[kk][0:8]=='if not(g': break
-						if not(goto_reach[j]):
-							if kk+1>=len(python_program):
-								python_program_line.append(python_program_line[kk])
-								python_program.append('g'+str(j+1)+'=False')
-								python_level.append(1)
-							else:
-								python_program_line.insert(kk+1,python_program_line[kk+1])
-								python_program.insert(kk+1,'g'+str(j+1)+'=False')
-								python_level.insert(kk+1,python_level[kk+1])
-							goto_reach[j]=True
+		for j in range(len(goto)):
+			basic_program_line.insert(0,0)
+			python_program_line.insert(0,python_program_line[0])
+			python_program.insert(0,'g'+str(len(goto)-j)+'=False')
+			python_level.insert(0,0)				
 
-			for j in range(len(goto)):
-				basic_program_line.insert(0,0)
-				python_program_line.insert(0,python_program_line[0])
-				python_program.insert(0,'g'+str(len(goto)-j)+'=False')
-				python_level.insert(0,0)				
+		basic_program_line.append(0)
+		python_program_line.append(python_program_line[len(python_program_line)-1])
+		python_program.append('if '+sb+': continue')
+		python_level.append(1)
+		basic_program_line.append(0)
+		python_program_line.append(python_program_line[len(python_program_line)-1])
+		python_program.append('break')
+		python_level.append(1)
+		python_text = ''
+		for j in range(len(python_program)):
+			if python_program[j][-1:]==':' and \
+			(python_program[j+1][0:2]=='if' or python_program[j+1][0:3]=='for' or \
+			python_program[j+1][0:5]=='while'):
+				basic_program_line.insert(j+1,0)
+				python_program_line.insert(j+1,python_program_line[j])
+				python_program.insert(j+1,'pass')
+				python_level.insert(j+1,python_level[j]+1)
 
-			basic_program_line.append(0)
-			python_program_line.append(python_program_line[len(python_program_line)-1])
-			python_program.append('if '+sb+': continue')
-			python_level.append(1)
-			basic_program_line.append(0)
-			python_program_line.append(python_program_line[len(python_program_line)-1])
-			python_program.append('break')
-			python_level.append(1)
-			python_text = ''
-			for j in range(len(python_program)):
-				if python_program[j][-1:]==':' and \
-				(python_program[j+1][0:2]=='if' or python_program[j+1][0:3]=='for' or \
-				python_program[j+1][0:5]=='while'):
-					basic_program_line.insert(j+1,0)
-					python_program_line.insert(j+1,python_program_line[j])
-					python_program.insert(j+1,'pass')
-					python_level.insert(j+1,python_level[j]+1)
+		for j in range(len(python_program)-1):
+			indent=0
+			if python_program[j][0:2]!='if' and python_program[j][0:3]!='for' and \
+			python_program[j][0:5]!='while' and python_program[j][0:4]!='else' and \
+			python_program[j][0:4]!='elif':
+				indent=(python_level[j+1]-python_level[j])
+			if indent>0 and python_level[j]<python_level[j+1]:
+				for k in range(j+1,len(python_program)):
+					if python_level[k]<=python_level[j]: break
+					python_level[k]=python_level[k]-indent
 
-			for j in range(len(python_program)-1):
-				indent=0
-				if python_program[j][0:2]!='if' and python_program[j][0:3]!='for' and \
-				python_program[j][0:5]!='while' and python_program[j][0:4]!='else' and \
-				python_program[j][0:4]!='elif':
-					indent=(python_level[j+1]-python_level[j])
-				if indent>0 and python_level[j]<python_level[j+1]:
-					for k in range(j+1,len(python_program)):
-						if python_level[k]<=python_level[j]: break
-						python_level[k]=python_level[k]-indent
+		for j in range(len(python_program)-1):
+			indent=1
+			if (python_program[j][0:2]=='if' or python_program[j][0:3]=='for' or \
+			python_program[j][0:5]=='while' or python_program[j][0:4]=='else' or \
+			python_program[j][0:4]=='elif') and python_program[j][-1]==':':
+				indent=(python_level[j+1]-python_level[j])
+			if indent==0 and python_level[j]==python_level[j+1]:
+				for k in range(j+1,len(python_program)):
+					if python_level[k]!=python_level[j] or \
+					python_program[k][0:2]=='if' or python_program[k][0:3]=='for' or \
+					python_program[k][0:5]=='while' or python_program[k][0:4]=='else' or \
+					python_program[k][0:4]=='elif':
+						break
+					python_level[k]=python_level[k]+1
 
-			for j in range(len(python_program)-1):
-				indent=1
-				if (python_program[j][0:2]=='if' or python_program[j][0:3]=='for' or \
-				python_program[j][0:5]=='while' or python_program[j][0:4]=='else' or \
-				python_program[j][0:4]=='elif') and python_program[j][-1]==':':
-					indent=(python_level[j+1]-python_level[j])
-				if indent==0 and python_level[j]==python_level[j+1]:
-					for k in range(j+1,len(python_program)):
-						if python_level[k]!=python_level[j] or \
-						python_program[k][0:2]=='if' or python_program[k][0:3]=='for' or \
-						python_program[k][0:5]=='while' or python_program[k][0:4]=='else' or \
-						python_program[k][0:4]=='elif':
-							break
-						python_level[k]=python_level[k]+1
-
-			for i in range(len(python_program)):
-				nn=''
-				for j in range(python_level[i]): nn=nn+'  '
-				python_text=python_text+nn+str(python_program[i])+'\n'
-			return python_text
-		#def Run
+		for i in range(len(python_program)):
+			nn=''
+			for j in range(python_level[i]): nn=nn+'  '
+			python_text=python_text+nn+str(python_program[i])+'\n'
+		return python_text
+	def run(self):
 		import time
 		t = time.time()
 		'''Version 5 Execute by call real function'''
-		if i == 0:
-			print(real())
-		else:
-			exec(real())
+		exec(self.real())
 		return 'Run time ' + str(round(time.time()-t,2)) + ' seconds'
+	def code(self):
+		print(self.real())
+
 
 	def help(self):
 		print('BasicPy version 3.0 Command References')
@@ -771,7 +772,7 @@ class basic:
 		else:
 			answer = 'y'
 		if answer == 'y' or answer == 'Y':
-			f =open(file_name, 'w')
+			f =open(file_name, 'w', encoding='UTF-8')
 			for i in program_text:
 				if type(i) is str:
 					f.write(i + '\n')
