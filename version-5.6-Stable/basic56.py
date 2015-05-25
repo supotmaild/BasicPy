@@ -5,7 +5,7 @@
 '''5.6.2 add UTF-8 to save standard'''
 class basic:
 	import os
-	print('BasicPy 5.6 by ARM Code Club Thailand 2015')
+	print('BasicPy 5.6.2 by ARM Code Club Thailand 2015')
 	print('==========================================')
 	print(os.getcwd())
 	print('Please change your current workspace')
@@ -26,7 +26,7 @@ class basic:
 	print('type exit to exit from x.program()')
 	print('type x.help() for more information')
 	print("Example program x.load('1to10_5.py')")
-	print('x.run(0) to see real code x.run(1) to execute')
+	print('x.code() to see real code x.run() to execute')
 	print('')
 	print('Please do not begin variable with letter "g"')
 	global line_num, program_text
