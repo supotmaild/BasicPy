@@ -12,9 +12,13 @@
 - Third concept is cut section compliler code loop from tier to tier 
 
 
-x.run(0) to see complie code from Basic 
-x.run(1) to run code in Python
+- x.code() to see complie code from Basic 
+- x.run() to run code in Python
 
 
 *note
 Editor x.program() in this version have some error
+- 5.6.1 update load non Basic code to Basic code automatic
+- 5.6.1 add UTF-8 to load standard
+- 5.6.2 add UTF-8 to save standard
+- 5.6.2 change run(0) to code() and run(1) back to run()
