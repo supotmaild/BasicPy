@@ -1,5 +1,13 @@
 - BasicPy 5.6 Stable version for Basic to Python 3.5 Compliler 
 - 
+- move this basic.py file to C:\Program Files\Python 3.5
+- Python console
+- >>> from basic56 import basic
+- >>> x=basic()
+- only 2 step
+- >>> x.load('example.py')
+- >>> x.code()
+- >>> x.run()
 ![BasicPy5.6](http://2.bp.blogspot.com/-_AOTFDji9ek/VV7FIADEXkI/AAAAAAAAAQs/VZt7FR5FZnU/s400/basicpy56.jpg "Basic to Python Complier")
 - Python 3.5 only
 - 
