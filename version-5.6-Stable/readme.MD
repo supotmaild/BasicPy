@@ -1,6 +1,6 @@
 - BasicPy 5.6 Stable version for Basic to Python 3.5 Compliler 
 - 
-- move this basic.py file to C:\Program Files\Python 3.5
+- move this basic56.py file to C:\Program Files\Python 3.5
 - Python console
 - >>> from basic56 import basic
 - >>> x=basic()
