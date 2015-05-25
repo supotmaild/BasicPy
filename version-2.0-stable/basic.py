@@ -1,11 +1,12 @@
-'''BasicPy 2.0 ARM Code Club Thailand 2015'''
+'''BasicPy 2.0.1 ARM Code Club Thailand 2015'''
 '''work with Python 3.2 with PILLOW 2.8.1 install'''
 '''download PILLOW https://pypi.python.org/pypi/Pillow/2.8.1'''
 '''Pillow-2.8.1.win32-py3.2.exe'''
 '''stable version 3 April 2015'''
+'''2.0.1 load and save UTF-8'''
 class basic:
 	import os	
-	print('BasicPy 2.0 by ARM Code Club Thailand 2015')
+	print('BasicPy 2.0.1 by ARM Code Club Thailand 2015')
 	print('==========================================')
 	print(os.getcwd())
 	print('Please change your current workspace')
@@ -118,7 +119,7 @@ class basic:
 		else:
 			answer = 'y'
 		if answer == 'y' or answer == 'Y':
-			f =open(file_name, 'w')
+			f =open(file_name, 'w', encoding='UTF-8')
 			for i in program_text:
 				if type(i) is str:
 					f.write(i + '\n')
@@ -126,7 +127,7 @@ class basic:
 	def load(self, file_name):
 		global line_num, program_text
 		self.new()
-		f = open(file_name, 'r')
+		f = open(file_name, 'r', encoding='UTF-8')
 		read_text = f.readlines()
 		for line in read_text:
 			for l in range(10):
