@@ -4,3 +4,4 @@
 - download PILLOW https://pypi.python.org/pypi/Pillow/2.8.1
 - '''Pillow-2.8.1.win32-py3.2.exe''' 
 - stable version 3 April 2015 
+- 2.0.1 load and save UTF-8
